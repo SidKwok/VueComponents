@@ -1,6 +1,6 @@
-# Model
+# Dialog
 
-> model that will popup, mainly used to show some information.
+> Dialog that will popup, mainly used to show some information.
 
 ## Goals
 
