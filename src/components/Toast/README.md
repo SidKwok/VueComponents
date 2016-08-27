@@ -1,6 +1,6 @@
-# Notification
+# Toast
 
-> notification that you need to popup
+> Toast that you need to popup
 
 ## Goals
 

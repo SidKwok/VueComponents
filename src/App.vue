@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Notification from './components/Notification/Notification';
+    import Notification from './components/Notification/Toast';
     import SimpleTable from './components/SimpleTable/SimpleTable';
 
     export default {
@@ -38,7 +38,7 @@
             }
         },
         components: {
-            Notification,
+            Toast,
             SimpleTable
         },
         methods: {
