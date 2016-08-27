@@ -1,6 +1,14 @@
 <template>
     <div id="app">
-        <notification>Vue is gas!</notification>
+        <notification
+            :show.sync="show"
+            animation="bounceLeft"
+            type="success"
+            :expire="1000"
+        >
+            Vue is gas!
+        </notification>
+        <button @click="dosth">do</button>
     </div>
 </template>
 
@@ -8,8 +16,18 @@
     import Notification from './components/Notification/Notification';
 
     export default {
+        data() {
+            return {
+                show: false
+            }
+        },
         components: {
             Notification
+        },
+        methods: {
+            dosth() {
+                this.show = !this.show;
+            }
         }
     }
 </script>
