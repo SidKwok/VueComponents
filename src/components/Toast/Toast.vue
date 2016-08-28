@@ -1,6 +1,6 @@
 <template>
     <div v-if="show" :transition="animation"
-        :class="['notification', `n-${type}`]"
+        :class="['toast', `n-${type}`]"
         :style="{
             width: `${width}px`,
             height: `${height}px`
@@ -25,7 +25,7 @@
             }
         },
         props: {
-            // show the notification or not,
+            // show the toast or not,
             // has to be twoWay bind,
             // ensure that it can be control in and out
             show: {
@@ -33,7 +33,7 @@
                 default: false,
                 twoWay: false
             },
-            // notification type: normal, success, warn, fail
+            // toast type: normal, success, warn, fail
             type: {
                 type: String,
                 default: 'normal'
@@ -98,7 +98,7 @@
     .n-fail {
         background-color: #ed6c63;
     }
-    .notification {
+    .toast {
         position: fixed;
         top: 10px;
         right: 10px;
@@ -106,7 +106,7 @@
         border-radius: 2px;
         font-size: 14px;
     }
-    .notification .close{
+    .toast .close{
         background-color: rgba(17, 17, 17, 0.2);
         border: none;
         border-radius: 0 3px;
@@ -119,14 +119,14 @@
         top: 0px;
         right: 0px;
     }
-    .notification .close::before {
+    .toast .close::before {
         transform: rotate(45deg);
     }
-    .notification .close::after {
+    .toast .close::after {
         transform: rotate(-45deg);
     }
-    .notification .close::before,
-    .notification .close::after {
+    .toast .close::before,
+    .toast .close::after {
         background-color: #fff;
         content: "";
         display: block;
@@ -138,7 +138,7 @@
         top: 50%;
         width: 50%;
     }
-    .notification .content {
+    .toast .content {
         margin: 35px auto 0 auto;
     }
 

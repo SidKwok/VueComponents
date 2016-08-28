@@ -4,12 +4,45 @@
 
 ## Goals
 
- * [] Slide in and out
+ * [x] Slide in and out
  * [x] Click the blank space and out.
- * [] Overlay should fade in and out. (need discussion)
+ * [x] Overlay should fade in and out. (need discussion)
 
 ## Usage
 
 ### Example
 
+```html
+<aside
+    :show.sync="show"
+    title="yo im aside"
+    :width="300"
+>
+    <h1>yoyo</h1>
+    <p v-for="i in 10">what's up biatch!</p>
+</aside>
+```
+
 ### Default API
+
+```javascript
+props: {
+    // has to be twoWay binding
+    // it needs to be control in an out
+    show: {
+        type: Boolean,
+        default: false,
+        twoWay: true
+    },
+    // aside content's title
+    title: {
+        type: String,
+        default: '',
+    },
+    // set the width you want
+    width: {
+        type: Number,
+        default: 350
+    }
+},
+```

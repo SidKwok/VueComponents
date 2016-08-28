@@ -1,17 +1,11 @@
 <template>
     <div id="app">
-        <aside
-            :show.sync="show"
-        ></aside>
-        <date-picker
-            :date.sync="date"
-            lang="zh">
-        </date-picker>
         <simple-table
-            :options="options"
+            :data="data"
+            :titles="titles"
+            :sortcols="sortcols"
             :pagecount="5"
-            ></simple-table>
-
+        ></simple-table>
         <button @click="dosth">do</button>
     </div>
 </template>
@@ -27,6 +21,25 @@
             return {
                 show: false,
                 date: '',
+                // titles name
+                titles: [{name: 'date'}, {name: 'number'}],
+                // the cols you need to sort
+                sortcols: [true, true],
+                // please ensure that that length of each row
+                // is the same as titles' length
+                data: [
+                    ['20160105', 8],
+                    ['20160203', 3],
+                    ['20160808', 1],
+                    ['20160301', 9],
+                    ['20160703', 5],
+                    ['20160105', 8],
+                    ['20160203', 3],
+                    ['20160808', 1],
+                    ['20160301', 9],
+                    ['20160703', 5],
+                    ['20160105', 8],
+                ]
             }
         },
         components: {
