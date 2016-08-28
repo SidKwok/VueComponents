@@ -6,7 +6,19 @@
 
  * [x] Pick the date
  * [x] Return the date, means `sync`
+ * [] Change the country
 
+## Noted
+
+This component use [Flatpickr](https://chmln.github.io/flatpickr/) to create the datepicker, which is quite something, elegant and flat. But it means I have to use its stylesheet to beautify the component.
+
+So you need to `install` it first:
+
+```bash
+npm install flatpickr
+```
+
+If you find out there is no style on it, feel free to change the `css` file path under the `<style>`.
 
 ## Usage
 
