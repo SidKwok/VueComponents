@@ -4,7 +4,7 @@
         <table>
             <thead>
                 <tr @click="sort">
-                    <td v-for="title in options.titles" :data-sortcol="$index" data-sorttype="desc">
+                    <td v-for="title in titles" :data-sortcol="$index" data-sorttype="desc">
                         {{ title.name }}
                     </td>
                 </tr>
@@ -107,16 +107,27 @@
             }
         },
         props: {
-            options: {
-                type: Object,
+            // titles name
+            titles: {
+                type: Array,
+                required: true
+            },
+            // the cols you need to sort
+            sortcols: {
+                type: Array,
                 default() {
-                    return {
-                        titles: [],
-                        sortCols: [],
-                        data:[],
-                    }
+                    return [];
                 }
             },
+            // please ensure that that length of each row
+            // is the same as titles' length
+            data: {
+                type: Array,
+                default() {
+                    return [];
+                }
+            },
+            // show amount of rows in one page
             pagecount: {
                 type: Number,
                 default: 10
@@ -125,8 +136,8 @@
         computed: {
             searchData() {
                 return (this.searchText)
-                    ? this.search(this.options.data, this.searchText)
-                    : this.options.data;
+                    ? this.search(this.data, this.searchText)
+                    : this.data;
             },
             currentData() {
                 return this.searchData.slice((this.page - 1) * this.pagecount, this.page * this.pagecount);
@@ -158,7 +169,7 @@
                 let col = parseInt(event.target.dataset.sortcol);
                 let sortType = event.target.dataset.sorttype;
                 if (col !== NaN) {
-                    this.options.data.sort(function (a, b) {
+                    this.data.sort(function (a, b) {
                         return sortAlgorithm(a, b, col, sortType);
                     });
                     event.target.dataset.sorttype = (sortType === 'desc') ? 'asc' : 'desc'

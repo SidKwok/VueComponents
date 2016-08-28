@@ -20,9 +20,11 @@ It has no style, so you can custom the style you want. The reason why I don't ap
 
 ```html
 <simple-table
-    :options="options"
+    :data="data"
+    :titles="titles"
+    :sortcols="sortcols"
     :pagecount="5"
-    ></simple-table>
+></simple-table>
 ```
 
 ```js
@@ -51,4 +53,32 @@ options: {
 
 ### Default API
 
-Include options, there is a `pagecount` being used to show amount of rows in one page.
+```javascript
+props: {
+    // titles name
+    titles: {
+        type: Array,
+        required: true
+    },
+    // the cols you need to sort
+    sortcols: {
+        type: Array,
+        default() {
+            return [];
+        }
+    },
+    // please ensure that that length of each row
+    // is the same as titles' length
+    data: {
+        type: Array,
+        default() {
+            return [];
+        }
+    },
+    // show amount of rows in one page
+    pagecount: {
+        type: Number,
+        default: 10
+    }
+},
+```
