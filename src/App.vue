@@ -1,45 +1,26 @@
 <template>
     <div id="app">
-        <simple-table :options="options"
-            ></simple-table>
+        <h1>{{ date }}</h1>
         <button @click="dosth">do</button>
     </div>
 </template>
 
 <script>
-    import Notification from './components/Notification/Toast';
+    import Toast from './components/Toast/Toast';
     import SimpleTable from './components/SimpleTable/SimpleTable';
+    import DatePicker from './components/DatePicker/DatePicker';
 
     export default {
         data() {
             return {
                 show: false,
-                options: {
-                    titles: [{name: '日期'}, {name: '数量'}],
-                    sortCols: [true, true],
-                    data: [
-                        ['20160105', 8],
-                        ['20160203', 3],
-                        ['20160808', 1],
-                        ['20160301', 9],
-                        ['20160703', 5],
-                        ['20160105', 8],
-                        ['20160203', 3],
-                        ['20160808', 1],
-                        ['20160301', 9],
-                        ['20160703', 5],
-                        ['20160105', 8],
-                        ['20160203', 3],
-                        ['20160808', 1],
-                        ['20160301', 9],
-                        ['20160703', 5],
-                    ]
-                }
+                date: ''
             }
         },
         components: {
             Toast,
-            SimpleTable
+            SimpleTable,
+            DatePicker
         },
         methods: {
             dosth() {

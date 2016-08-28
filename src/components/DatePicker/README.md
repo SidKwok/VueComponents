@@ -4,12 +4,43 @@
 
 ## Goals
 
- * [] Pick the date
- * [] Return the date, means `sync`
+ * [x] Pick the date
+ * [x] Return the date, means `sync`
 
 
 ## Usage
 
 ### Example
 
+```html
+<date-picker
+    :date.sync="date"
+    :options="options">
+</date-picker>
+```
+
 ### Default API
+
+```javascript
+props: {
+    // you can check the documentation(https://chmln.github.io/flatpickr/)
+    // to custom the options whatever you want
+    // just don't mess up with onChange
+    // coz i used it to update the date
+    // i will find a better way to solve this :-(
+    options: {
+        type: Object,
+        default() {
+            return {};
+        }
+    },
+    // send the date out
+    // has to be twoWay binding
+    // so it can pass the date out of the component
+    date: {
+        type: String,
+        required: true,
+        twoWay: true
+    }
+},
+```
