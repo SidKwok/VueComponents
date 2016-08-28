@@ -6,7 +6,7 @@
 
  * [x] Pick the date
  * [x] Return the date, means `sync`
- * [] Change the country
+ * [x] Change the language
 
 ## Noted
 

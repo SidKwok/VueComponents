@@ -5,8 +5,8 @@
 ## Goals
 
  * [] Slide in and out
- * [] Click the blank space and out.
-
+ * [x] Click the blank space and out.
+ * [] Overlay should fade in and out. (need discussion)
 
 ## Usage
 

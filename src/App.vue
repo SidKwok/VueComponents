@@ -1,6 +1,11 @@
 <template>
     <div id="app">
-        <h1>{{ date }}</h1>
+        <aside
+            :show.sync="show"
+        ></aside>
+        <date-picker
+            :date.sync="date"
+            lang="zh"></date-picker>
         <button @click="dosth">do</button>
     </div>
 </template>
@@ -9,6 +14,7 @@
     import Toast from './components/Toast/Toast';
     import SimpleTable from './components/SimpleTable/SimpleTable';
     import DatePicker from './components/DatePicker/DatePicker';
+    import Aside from './components/Aside/Aside';
 
     export default {
         data() {
@@ -20,7 +26,8 @@
         components: {
             Toast,
             SimpleTable,
-            DatePicker
+            DatePicker,
+            Aside
         },
         methods: {
             dosth() {
@@ -31,5 +38,9 @@
 </script>
 
 <style>
-
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
 </style>
