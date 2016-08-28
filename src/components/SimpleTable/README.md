@@ -19,7 +19,9 @@ It has no style, so you can custom the style you want. The reason why I don't ap
 ### Example
 
 ```html
-<simple-table :options="options"
+<simple-table
+    :options="options"
+    :pagecount="5"
     ></simple-table>
 ```
 
@@ -49,4 +51,4 @@ options: {
 
 ### Default API
 
-It has only option, you can check it above.
+Include options, there is a `pagecount` being used to show amount of rows in one page.

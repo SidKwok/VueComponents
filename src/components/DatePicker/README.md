@@ -27,7 +27,8 @@ If you find out there is no style on it, feel free to change the `css` file path
 ```html
 <date-picker
     :date.sync="date"
-    :options="options">
+    :options="options"
+    lang="zh">
 </date-picker>
 ```
 
@@ -53,6 +54,11 @@ props: {
         type: String,
         required: true,
         twoWay: true
+    },
+    // choose the particular language
+    lang: {
+        type: String,
+        default: 'en'
     }
 },
 ```

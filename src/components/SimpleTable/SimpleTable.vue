@@ -113,9 +113,13 @@
                     return {
                         titles: [],
                         sortCols: [],
-                        data:[]
+                        data:[],
                     }
                 }
+            },
+            pagecount: {
+                type: Number,
+                default: 10
             }
         },
         computed: {
@@ -125,10 +129,10 @@
                     : this.options.data;
             },
             currentData() {
-                return this.searchData.slice((this.page - 1) * 10, this.page * 10);
+                return this.searchData.slice((this.page - 1) * this.pagecount, this.page * this.pagecount);
             },
             allPages() {
-                return Math.ceil(this.searchData.length / 10);
+                return Math.ceil(this.searchData.length / this.pagecount);
             }
         },
         methods: {

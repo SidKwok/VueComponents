@@ -54,7 +54,7 @@
                 required: true,
                 twoWay: true
             },
-            // choose the particular languange
+            // choose the particular language
             lang: {
                 type: String,
                 default: 'en'

@@ -5,7 +5,13 @@
         ></aside>
         <date-picker
             :date.sync="date"
-            lang="zh"></date-picker>
+            lang="zh">
+        </date-picker>
+        <simple-table
+            :options="options"
+            :pagecount="5"
+            ></simple-table>
+
         <button @click="dosth">do</button>
     </div>
 </template>
@@ -20,7 +26,7 @@
         data() {
             return {
                 show: false,
-                date: ''
+                date: '',
             }
         },
         components: {
