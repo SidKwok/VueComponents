@@ -14,6 +14,8 @@
 
  * Only works on `.vue` file, so I can't guarantee any other ways.
 
+ * Fully tested with `Vue@1.0.26`, can't guarantee a dime on `Vue@2.0.0`.
+
  * Should support IE9+.
 
  * Punch me in the face if you can't find any docs in any components.

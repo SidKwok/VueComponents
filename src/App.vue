@@ -7,15 +7,14 @@
             <p slot="articles">articles</p>
             <p slot="music">music</p>
         </tabs> -->
-        <aside
-            :show.sync="show"
-            title="yo im aside"
-            :width="300"
-            position="left"
-        >
-            <h1>yoyo</h1>
-            <p v-for="i in 10">what's up biatch!</p>
-        </aside>
+        <div class="" v-for="i in 10" style="width: 100px;height: 100px;">
+            <switch
+                :checked.sync="checked"
+                :height="20"
+                :width="50"
+            ></switch>
+        </div>
+        {{ checked }}
         <button @click="dosth">do</button>
     </div>
 </template>
@@ -27,11 +26,13 @@
     import Aside from './components/Aside/Aside';
     import Dialog from './components/Dialog/Dialog';
     import Tabs from './components/Tabs/Tabs';
+    import Switch from './components/Switch/Switch';
 
     export default {
         data() {
             return {
                 show: false,
+                checked: true
             }
         },
         components: {
@@ -40,7 +41,7 @@
             DatePicker,
             Aside,
             Dialog,
-            Tabs,
+            Switch,
         },
         methods: {
             dosth() {
