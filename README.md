@@ -45,7 +45,7 @@
  * Don't use css dependencies unless it is deadly necessary. Absolutely no global `css` like `bootstrap`.
  * Every component's style is `scoped`.
  * No preprocessor such like `sass` or `less`, only `css`.
-
+ * Have animations' doubt? Find out in `Animate.css`!
 
 Done talking, time to code.
 

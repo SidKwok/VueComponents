@@ -5,7 +5,7 @@
 ## Goals
 
  * [x] Popup
- * [] Animations
+ * [x] Animations
  * [x] Types: info, success, confirm, warn
  * [x] It should have yesCallback and cancelCallback (use event)
  * [x] Use `<slot>` to contain the content outside

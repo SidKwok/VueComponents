@@ -1,7 +1,8 @@
 <template lang="html">
     <div class="dialog" v-show="show" transition="fade">
         <div class="overlay" @click="close"></div>
-        <div class="dialog-box"
+        <div class="dialog-box" v-show="show"
+            transition="bounce"
             :style="{
                 width: `${width}px`,
                 height: `${height}px`
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+    // import '../../../node_modules/animate.css/animate.css';
     export default {
       data() {
           return {
@@ -220,76 +222,41 @@
     .fade-enter, .fade-leave {
         opacity: 0;
     }
-    .bounceIn {
-        -webkit-animation:bounceIn .5s .2s ease both;
-        -moz-animation:bounceIn .5s .2s ease both;
+    .bounce-transition {
+        animation-duration: .5s;
+        animation-fill-mode: both;
     }
-    @-webkit-keyframes bounceIn {
+    .bounce-enter {
+        animation-name: bounceIn;
+    }
+
+    @keyframes bounceIn {
+        from, 20%, 40%, 60%, 80%, to {
+            animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+
         0% {
-            opacity:0;
-            -webkit-transform:scale(.3)
+            opacity: 0;
+            transform: scale3d(.3, .3, .3);
         }
-        50% {
-            opacity:1;
-            -webkit-transform:scale(1.05)
-        }
-        70% {
-            -webkit-transform:scale(.9)
-        }
-        100% {
-            -webkit-transform:scale(1)
+
+        to {
+            opacity: 1;
+            transform: scale3d(1, 1, 1);
         }
     }
-    @-moz-keyframes bounceIn {
-        0% {
-            opacity:0;
-            -moz-transform:scale(.3)
-        }
-        50% {
-            opacity:1;
-            -moz-transform:scale(1.05)
-        }
-        70% {
-            -moz-transform:scale(.9)
-        }
-        100% {
-            -moz-transform:scale(1)
-        }
+
+    .bounce-leave {
+        animation-name: bounceOut;
     }
-    .bounceOut {
-        -webkit-animation:bounceOut .5s .2s ease both;
-        -moz-animation:bounceOut .5s .2s ease both;
-    }
-    @-webkit-keyframes bounceOut {
-        0% {
-            -webkit-transform:scale(1)
+    @keyframes bounceOut {
+        from {
+            transform: scale3d(1, 1, 1);
         }
-        25% {
-            -webkit-transform:scale(.95)
-        }
-        50% {
-            opacity:1;
-            -webkit-transform:scale(1.1)
-        }
-        100% {
-            opacity:0;
-            -webkit-transform:scale(.3)
-        }
-    }
-    @-moz-keyframes bounceOut {
-        0% {
-            -moz-transform:scale(1)
-        }
-        25% {
-            -moz-transform:scale(.95)
-        }
-        50% {
-            opacity:1;
-            -moz-transform:scale(1.1)
-        }
-        100% {
-            opacity:0;
-            -moz-transform:scale(.3)
+
+        to {
+            opacity: 0;
+            transform: scale3d(.3, .3, .3);
         }
     }
 </style>
