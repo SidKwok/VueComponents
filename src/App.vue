@@ -7,9 +7,19 @@
             <p slot="articles">articles</p>
             <p slot="music">music</p>
         </tabs> -->
-        <dialog :show.sync="show"
+        <toast
+            :show.sync="show"
+            animation="bounceLeft"
+            type="normal"
+            :expire="100000"
+            :width="200"
+            :height="50"
+        >
+            Vue is gas!
+        </toast>
+        <!-- <dialog :show.sync="show"
             title="yoyoyo"
-            type="info"
+            type="success"
             :width="500"
             :height="300"
             @confirm="doConfirm"
@@ -19,7 +29,7 @@
             <p>
                 Jesse Pinkmen is in the house!
             </p>
-        </dialog>
+        </dialog> -->
         <button @click="dosth">do</button>
     </div>
 </template>

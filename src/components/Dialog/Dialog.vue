@@ -2,7 +2,7 @@
     <div class="dialog" v-show="show" transition="fade">
         <div class="overlay" @click="close"></div>
         <div class="dialog-box" v-show="show"
-            transition="bounce"
+            transition="zoom"
             :style="{
                 width: `${width}px`,
                 height: `${height}px`
@@ -212,22 +212,23 @@
     .btn-group .dialog-cancel {
         background-color: #eee;
     }
-    /*animations*/
+    /*Animations*/
     .fade-transition {
         transition: all .3s;
     }
     .fade-enter, .fade-leave {
         opacity: 0;
     }
-    .bounce-transition {
+
+    .zoom-transition {
         animation-duration: .3s;
         animation-fill-mode: both;
     }
-    .bounce-enter {
-        animation-name: bounceIn;
+    .zoom-enter {
+        animation-name: zoomIn;
     }
 
-    @keyframes bounceIn {
+    @keyframes zoomIn {
         from, 20%, 40%, 60%, 80%, to {
             animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         }
@@ -243,10 +244,10 @@
         }
     }
 
-    .bounce-leave {
-        animation-name: bounceOut;
+    .zoom-leave {
+        animation-name: zoomOut;
     }
-    @keyframes bounceOut {
+    @keyframes zoomOut {
         from {
             transform: scale3d(1, 1, 1);
         }

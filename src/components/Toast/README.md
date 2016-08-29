@@ -7,26 +7,26 @@
  * [x] four basic kind of notification (marked with color)
  * [x] timer to close the notification
  * [x] animations
- * [] more options of animation
+ * [x] more options of animation
  * [x] custom size
  * [] custom location
- * [] multiple toasts
+ * [x] multiple toasts
 
 ## Usage
 
 ### Example
 
 ```html
-<notification
+<toast
     :show.sync="show"
     animation="bounceRight"
     type="normal"
-    :expire="10000"
+    :expire="10000000"
     :width="200"
     :height="100"
 >
     Vue is gas!
-</notification>
+</toast>
 ```
 ### Default API
 
