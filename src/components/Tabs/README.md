@@ -6,7 +6,7 @@
 
  * [] Switch and hide
  * [] Use `<slot>`
-
+ * [] The content inside should never affect the stuff outside(BFC)
 
 ## Usage
 
