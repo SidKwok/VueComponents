@@ -46,16 +46,6 @@
                 this.show = false;
             }
         },
-        transitions: {
-            slide: {
-                enterClass: 'slideIn',
-                leaveClass: 'slideOut'
-            },
-            fade: {
-                enterClass: 'fadeIn',
-                leaveClass: 'fadeOut'
-            }
-        }
     };
 </script>
 
@@ -66,7 +56,6 @@
         left: 0px;
         width: 100%;
         height: 100%;
-        transition: all .3s;
     }
     .overlay {
         position: absolute;
@@ -126,10 +115,10 @@
         position: relative;
         padding: 15px;
     }
-    .fadeIn {
-        opacity: 1;
+    .fade-transition {
+        transition: all .3s;
     }
-    .fadeOut {
+    .fade-enter, .fade-leave {
         opacity: 0;
     }
     .slideIn {

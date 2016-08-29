@@ -8,7 +8,7 @@
  * [x] Pagination
  * [x] Sort
  * [] Custom the functions you want, such as `search: false`
- * [] Set the default number of rows in a page.
+ * [x] Set the default number of rows in a page.
 
 ## Noted
 

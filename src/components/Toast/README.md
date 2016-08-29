@@ -10,6 +10,7 @@
  * [] more options of animation
  * [] custom size
  * [] custom location
+ * [] multiple toasts 
 
 ## Usage
 
