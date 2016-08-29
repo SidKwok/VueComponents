@@ -7,29 +7,15 @@
             <p slot="articles">articles</p>
             <p slot="music">music</p>
         </tabs> -->
-        <toast
+        <aside
             :show.sync="show"
-            animation="bounceLeft"
-            type="normal"
-            :expire="100000"
-            :width="200"
-            :height="50"
+            title="yo im aside"
+            :width="300"
+            position="left"
         >
-            Vue is gas!
-        </toast>
-        <!-- <dialog :show.sync="show"
-            title="yoyoyo"
-            type="success"
-            :width="500"
-            :height="300"
-            @confirm="doConfirm"
-            @warn="doWarn"
-        >
-            <h1>hey you</h1>
-            <p>
-                Jesse Pinkmen is in the house!
-            </p>
-        </dialog> -->
+            <h1>yoyo</h1>
+            <p v-for="i in 10">what's up biatch!</p>
+        </aside>
         <button @click="dosth">do</button>
     </div>
 </template>

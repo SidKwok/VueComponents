@@ -21,7 +21,7 @@
     :show.sync="show"
     animation="bounceRight"
     type="normal"
-    :expire="10000000"
+    :expire="10000"
     :width="200"
     :height="100"
 >

@@ -7,6 +7,7 @@
  * [x] Slide in and out
  * [x] Click the blank space and out.
  * [x] Overlay should fade in and out. (need discussion)
+ * [x] Choose right or left aside.
 
 ## Usage
 
@@ -17,6 +18,7 @@
     :show.sync="show"
     title="yo im aside"
     :width="300"
+    position="right"
 >
     <h1>yoyo</h1>
     <p v-for="i in 10">what's up biatch!</p>
@@ -38,6 +40,11 @@ props: {
     title: {
         type: String,
         default: '',
+    },
+    // position of aside: left, right
+    position: {
+        type: String,
+        default: 'left'
     },
     // set the width you want
     width: {

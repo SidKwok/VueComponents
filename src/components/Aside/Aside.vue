@@ -1,14 +1,11 @@
 <template lang="html">
     <div class="aside" v-show="show" transition="fade">
         <div class="overlay" @click="close"></div>
-        <div :style="{ width: `${width}px` }"
-            :class="[
-                'aside-content',
-                {
-                    'slideIn': show,
-                    'slideOut': !show
-                }
-            ]">
+        <div v-show="show"
+            :style="contentStyle"
+            class="aside-content"
+            :transition="`slide-${position}`"
+        >
             <div class="aside-title">
                 <h4>{{ title }}</h4>
                 <button class="close" @click="close"></button>
@@ -35,10 +32,26 @@
                 type: String,
                 default: '',
             },
+            // position of aside: left, right
+            position: {
+                type: String,
+                default: 'left'
+            },
             // set the width you want
             width: {
                 type: Number,
                 default: 350
+            }
+        },
+        computed: {
+            contentStyle() {
+                let style = {
+                    width: `${this.width}px`
+                };
+                this.position === 'left'
+                    ? style.left = 0
+                    : style.right = 0;
+                return style;
             }
         },
         methods: {
@@ -66,6 +79,7 @@
         z-index: -1000;
     }
     .aside-content {
+        position: absolute;
         height: 100%;
         background-color: #fff;
         overflow: auto;
@@ -115,19 +129,26 @@
         position: relative;
         padding: 15px;
     }
+    /*Animations*/
     .fade-transition {
         transition: all .3s;
     }
     .fade-enter, .fade-leave {
         opacity: 0;
     }
-    .slideIn {
-        animation:slideIn .3s;
+    .slide-left-transition,
+    .slide-right-transition {
+        animation-duration: .3s;
+        animation-fill-mode: both;
     }
-    .slideOut {
-        animation:slideOut .3s;
+
+    .slide-left-enter {
+        animation-name: slideLeftIn;
     }
-    @keyframes slideIn {
+    .slide-left-leave {
+        animation-name: slideLeftOut;
+    }
+    @keyframes slideLeftIn {
         0% {
             transform: translateX(-100%);
             opacity: 0;
@@ -137,13 +158,40 @@
             opacity: 1;
         }
     }
-    @keyframes slideOut {
+    @keyframes slideLeftOut {
         0% {
             transform: translateX(0);
             opacity: 1;
         }
         100% {
             transform: translateX(-100%);
+            opacity: 0;
+        }
+    }
+
+    .slide-right-enter {
+        animation-name: slideRightIn;
+    }
+    .slide-right-leave {
+        animation-name: slideRightOut;
+    }
+    @keyframes slideRightIn {
+        0% {
+            transform: translateX(200%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    @keyframes slideRightOut {
+        0% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(200%);
             opacity: 0;
         }
     }
