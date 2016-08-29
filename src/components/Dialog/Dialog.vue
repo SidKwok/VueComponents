@@ -99,12 +99,9 @@
                   case 'warn':
                       this.$emit('warn')
                       break;
-                  case 'info':
-                  case 'success':
-                  default:
-                      this.close();
-                      break;
               }
+              // each button should be able to close dialog
+              this.close();
           },
           close() {
               this.show = false;
@@ -223,7 +220,7 @@
         opacity: 0;
     }
     .bounce-transition {
-        animation-duration: .5s;
+        animation-duration: .3s;
         animation-fill-mode: both;
     }
     .bounce-enter {

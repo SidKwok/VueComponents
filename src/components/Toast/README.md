@@ -8,9 +8,9 @@
  * [x] timer to close the notification
  * [x] animations
  * [] more options of animation
- * [] custom size
+ * [x] custom size
  * [] custom location
- * [] multiple toasts 
+ * [] multiple toasts
 
 ## Usage
 

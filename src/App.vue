@@ -9,7 +9,7 @@
         </tabs> -->
         <dialog :show.sync="show"
             title="yoyoyo"
-            type="success"
+            type="info"
             :width="500"
             :height="300"
             @confirm="doConfirm"
