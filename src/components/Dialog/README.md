@@ -67,7 +67,7 @@ props: {
         required: true
     },
     // what kind of the dialog
-    // info, success, confirm, warn
+    // info, success, confirm, warn, error
     type: {
         type: String,
         default: 'info'
