@@ -1,17 +1,22 @@
 <template lang="html">
-    <label class="switch"
-        :style="[
-            barSize,
-            barColor
-        ]"
-    >
-        <div class="switch-circle"
+    <label class="switch">
+        <div class="switch-bar"
             :style="[
-                circleSize,
-                circleColor,
-                circlePos
+                barSize,
+                barColor
             ]"
-        ></div>
+        >
+            <div class="switch-circle"
+                :style="[
+                    circleSize,
+                    circleColor,
+                    circlePos
+                ]"
+            ></div>
+        </div>
+        <div class="switch-tag" v-if="!hideTag">
+            <slot></slot>
+        </div>
         <input type="checkbox" v-model="checked">
     </label>
 </template>
@@ -25,6 +30,11 @@
                 type: Boolean,
                 default: false,
                 twoWay: true
+            },
+            // show Tagname or not
+            hidetag: {
+                type: Boolean,
+                default: true,
             },
             // disabled switch
             disabled: {
@@ -92,7 +102,10 @@
 
 <style lang="css" scoped>
     .switch {
-        position: absolute;
+        display: inline-block;
+    }
+    .switch-bar {
+        position: relative;
         display: inline-block;
         border-radius: 8px;
         cursor: pointer;
@@ -105,6 +118,9 @@
         border-radius: 50%;
         top: -3px;
         transition: all .2s;
+    }
+    .switch-tag {
+        display: inline-block;
     }
     .switch input {
         display: none;

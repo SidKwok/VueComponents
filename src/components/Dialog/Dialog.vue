@@ -34,7 +34,6 @@
 </template>
 
 <script>
-    // import '../../../node_modules/animate.css/animate.css';
     export default {
       data() {
           return {
@@ -55,7 +54,7 @@
               required: true
           },
           // what kind of the dialog
-          // info, success, confirm, warn
+          // info, success, confirm, warn, error
           type: {
               type: String,
               default: 'info'
@@ -81,6 +80,7 @@
                   case 'warn':
                       text = 'confirm';
                       break;
+                  case 'error':
                   case 'info':
                   case 'success':
                   default:
@@ -208,6 +208,10 @@
     .btn-group .dialog-warn {
         border-color: #fce473;
         color: #fce473;
+    }
+    .btn-group .dialog-error {
+        border-color: #ed6c63;
+        color: #ed6c63;
     }
     .btn-group .dialog-cancel {
         background-color: #eee;

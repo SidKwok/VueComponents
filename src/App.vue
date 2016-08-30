@@ -7,13 +7,17 @@
             <p slot="articles">articles</p>
             <p slot="music">music</p>
         </tabs> -->
-        <div class="" v-for="i in 10" style="width: 100px;height: 100px;">
+        <!-- <div class="" v-for="i in 10" style="height: 100px;">
             <switch
                 :checked.sync="checked"
-                :height="20"
-                :width="50"
-            ></switch>
-        </div>
+                :hidetag="false"
+            >Jesse Pinkmen: {{ i }}</switch>
+        </div> -->
+        <dialog
+            type="error"
+            :show.sync="show"
+            title="hey"
+        >yoyoyoyo</dialog>
         {{ checked }}
         <button @click="dosth">do</button>
     </div>
