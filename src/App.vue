@@ -1,24 +1,12 @@
 <template>
     <div id="app">
-        <!-- <tabs
-            :titles="['pictures', 'articles', 'music']"
-        >
-            <p slot="pictures">pictures</p>
-            <p slot="articles">articles</p>
-            <p slot="music">music</p>
-        </tabs> -->
-        <!-- <div class="" v-for="i in 10" style="height: 100px;">
-            <switch
-                :checked.sync="checked"
-                :hidetag="false"
-            >Jesse Pinkmen: {{ i }}</switch>
-        </div> -->
-        <dialog
-            type="error"
-            :show.sync="show"
-            title="hey"
-        >yoyoyoyo</dialog>
-        {{ checked }}
+        <br />
+        <div style="text-align: center;">
+            <upload-image
+                :formdata.sync="formdata"
+                @error="dosth"
+            ></upload-image>
+        </div>
         <button @click="dosth">do</button>
     </div>
 </template>
@@ -31,12 +19,14 @@
     import Dialog from './components/Dialog/Dialog';
     import Tabs from './components/Tabs/Tabs';
     import Switch from './components/Switch/Switch';
+    import UploadImage from './components/UploadImage/UploadImage';
 
     export default {
         data() {
             return {
                 show: false,
-                checked: true
+                checked: true,
+                formdata: {}
             }
         },
         components: {
@@ -46,10 +36,11 @@
             Aside,
             Dialog,
             Switch,
+            UploadImage
         },
         methods: {
             dosth() {
-                this.show = true
+                console.log('yoyo');
             },
             doConfirm() {
                 console.log('yo im confirm')
