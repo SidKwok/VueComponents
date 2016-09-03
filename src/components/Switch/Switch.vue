@@ -1,5 +1,5 @@
 <template lang="html">
-    <label class="switch">
+    <label class="switch" :class="{ disabled: disabled }">
         <div class="switch-bar"
             :style="[
                 barSize,
@@ -103,6 +103,12 @@
 <style lang="css" scoped>
     .switch {
         display: inline-block;
+    }
+    .disabled {
+        pointer-events: none;
+    }
+    .disabled:hover {
+        cursor: not-allowed;
     }
     .switch-bar {
         position: relative;

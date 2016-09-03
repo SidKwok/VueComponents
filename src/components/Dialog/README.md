@@ -10,6 +10,7 @@
  * [x] It should have yesCallback and cancelCallback (use event)
  * [x] Use `<slot>` to contain the content outside
  * [x] Title
+ * [] Can do multiple operation in a Dialog, such like success or fail after confirm.  
 
 ## Noted
 
@@ -25,7 +26,6 @@
     title="yoyoyo"
     type="success"
     :width="500"
-    :height="300"
     @confirm="doConfirm"
     @warn="doWarn"
 >
@@ -72,14 +72,10 @@ props: {
         type: String,
         default: 'info'
     },
-    // width and height of the center box
+    // width of the center box
     width: {
         type: Number,
         default: 500
     },
-    height: {
-        type: Number,
-        default: 300
-    }
 },
 ```

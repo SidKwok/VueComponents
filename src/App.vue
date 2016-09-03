@@ -2,10 +2,26 @@
     <div id="app">
         <br />
         <div style="text-align: center;">
-            <upload-image
+            <!-- <upload-image
                 :formdata.sync="formdata"
                 @error="dosth"
-            ></upload-image>
+            ></upload-image> -->
+            <!-- <dialog :show.sync="show"
+                title="yoyoyo"
+                type="success"
+                :width="500"
+                @confirm="doConfirm"
+                @warn="doWarn"
+            >
+                <h1>hey you</h1>
+                <p>
+                    Jesse Pinkmen is in the house!
+                </p>
+            </dialog> -->
+            <switch
+                :checked.sync="checked"
+                :disabled="false"
+            ></switch>
         </div>
         <button @click="dosth">do</button>
     </div>
@@ -40,7 +56,7 @@
         },
         methods: {
             dosth() {
-                console.log('yoyo');
+                this.show = true;
             },
             doConfirm() {
                 console.log('yo im confirm')

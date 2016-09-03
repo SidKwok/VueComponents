@@ -7,7 +7,11 @@
  * [x] Switch between `true` and `false`.
  * [x] Animation.
  * [] Need a tag name.
- * [] Some unchangable switch prefer be gray
+ * [x] Some unchangable switch prefer be gray
+
+## Noted
+
+Change the width and height whatever you like, but in my opinion, the default may have the best experience.
 
 ## Usage
 
@@ -16,8 +20,7 @@
 ```html
 <switch
     :checked.sync="checked"
-    :height="20"
-    :width="50"
+    :disabled="false"
 ></switch>
 ```
 
@@ -33,7 +36,6 @@ props: {
         twoWay: true
     },
     // disabled switch
-    // TODO!!!
     disabled: {
         type: Boolean,
         default: false

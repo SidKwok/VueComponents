@@ -5,7 +5,6 @@
             transition="zoom"
             :style="{
                 width: `${width}px`,
-                height: `${height}px`
                 }">
             <div class="dialog-head">
                 <button class="close" @click="close"></button>
@@ -59,15 +58,11 @@
               type: String,
               default: 'info'
           },
-          // width and height of the center box
+          // width of the center box
           width: {
               type: Number,
               default: 500
           },
-          height: {
-              type: Number,
-              default: 300
-          }
       },
       computed: {
           showCancel() {
@@ -179,7 +174,8 @@
         text-align: center;
     }
     .btn-group {
-        margin: 35px auto;
+        margin: 0px auto;
+        padding-bottom: 20px;
         width: 98%;
         text-align: center;
     }
