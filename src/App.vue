@@ -2,26 +2,8 @@
     <div id="app">
         <br />
         <div style="text-align: center;">
-            <!-- <upload-image
-                :formdata.sync="formdata"
-                @error="dosth"
-            ></upload-image> -->
-            <!-- <dialog :show.sync="show"
-                title="yoyoyo"
-                type="success"
-                :width="500"
-                @confirm="doConfirm"
-                @warn="doWarn"
-            >
-                <h1>hey you</h1>
-                <p>
-                    Jesse Pinkmen is in the house!
-                </p>
-            </dialog> -->
-            <switch
-                :checked.sync="checked"
-                :disabled="false"
-            ></switch>
+            <radio :name.sync="picked" value="one"></radio>
+            <radio :name.sync="picked" value="two"></radio>
         </div>
         <button @click="dosth">do</button>
     </div>
@@ -36,13 +18,15 @@
     import Tabs from './components/Tabs/Tabs';
     import Switch from './components/Switch/Switch';
     import UploadImage from './components/UploadImage/UploadImage';
+    import Radio from './components/Radio/Radio';
 
     export default {
         data() {
             return {
                 show: false,
                 checked: true,
-                formdata: {}
+                formdata: {},
+                picked: 'one'
             }
         },
         components: {
@@ -52,7 +36,8 @@
             Aside,
             Dialog,
             Switch,
-            UploadImage
+            UploadImage,
+            Radio
         },
         methods: {
             dosth() {
