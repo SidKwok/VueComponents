@@ -57,9 +57,8 @@
         ready() {
             let fullpage = this.$els.fullpage;
             this.pageHeight = fullpage.clientHeight;
-            window.onresize = () => {
+            window.onresize = () =>
                 this.pageHeight = fullpage.clientHeight;
-            };
         },
         methods: {
             switchPage(event) {
@@ -70,7 +69,7 @@
                     } else {
                         console.log(event.deltaY)
                         let index = (event.deltaY > 0) ? 1 : -1;
-                        this.currentPage = (this.currentPage + index) > this.pages
+                        this.currentPage = ((this.currentPage + index) > this.pages || (this.currentPage + index) <= 0)
                                             ? this.currentPage
                                             : this.currentPage + index
                     }

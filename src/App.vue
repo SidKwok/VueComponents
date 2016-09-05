@@ -15,7 +15,7 @@
             <div></div>
             <div></div>
         </div> -->
-        <full-page :pages="3">
+        <full-page :pages="3" @enter="dosth">
             <template slot="page-1">1</template>
             <template slot="page-2">2</template>
             <template slot="page-3">3</template>
@@ -62,7 +62,7 @@
             fullpage
         },
         methods: {
-            dosth() {
+            dosth(to, from) {
                 console.log(2)
             },
             doConfirm() {
