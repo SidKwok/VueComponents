@@ -63,7 +63,7 @@
         },
         methods: {
             dosth() {
-                this.show = true;
+                console.log(2)
             },
             doConfirm() {
                 console.log('yo im confirm')

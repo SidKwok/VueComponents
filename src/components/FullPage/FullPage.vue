@@ -1,6 +1,7 @@
 <template lang="html">
     <div v-el:fullpage
         class="fullpage"
+        @mousewheel="switchPage"
     >
         <div class="container"
             :style="{height: `${pageHeight * pages}px`, top: conPos}"
@@ -9,10 +10,22 @@
                 <slot :name="`page-${i + 1}`"></slot>
             </div>
         </div>
-        <div class="nav">
-            <button @click="switchPage(1)">1</button>
-            <button @click="switchPage(2)">2</button>
-            <button @click="switchPage(3)">3</button>
+        <div class="nav"
+            :style="{top: navPos}"
+            @click="switchPage"
+            v-el:nav
+        >
+            <ul>
+                <li v-for="i of pages"
+                    :data-page="i + 1"
+                >
+                    <a href="#"
+                        :data-page="i + 1"
+                        class="dot"
+                        :style="{backgroundColor: (i + 1) === currentPage ? '#000' : ''}"
+                    ></a>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -22,7 +35,8 @@
         data() {
             return {
                 currentPage: 1,
-                pageHeight: 0
+                pageHeight: 0,
+                scrolling: false
             }
         },
         props: {
@@ -35,19 +49,36 @@
         computed: {
             conPos() {
                 return `-${(this.currentPage - 1) * this.pageHeight}px`;
+            },
+            navPos() {
+                return `${this.pageHeight / 2 - this.$els.nav.clientHeight / 2}px`
             }
         },
         ready() {
-            this.pageHeight = this.$els.fullpage.clientHeight;
+            let fullpage = this.$els.fullpage;
+            this.pageHeight = fullpage.clientHeight;
             window.onresize = () => {
-                this.pageHeight = this.$els.fullpage.clientHeight;
+                this.pageHeight = fullpage.clientHeight;
             };
         },
         methods: {
-            switchPage(index) {
-                this.currentPage = index;
-            }
-        }
+            switchPage(event) {
+                if (!this.scrolling) {
+                    this.scrolling = true;
+                    if (event.target.dataset.page) {
+                        this.currentPage = parseInt(event.target.dataset.page);
+                    } else {
+                        let index = (event.wheelDelta < 0) ? 1 : -1;
+                        this.currentPage = (this.currentPage + index) > this.pages
+                                            ? this.currentPage
+                                            : this.currentPage + index
+                    }
+                    setTimeout(() => {
+                        this.scrolling = false;
+                    }, 1000);
+                }
+            },
+        },
     };
 </script>
 
@@ -65,14 +96,29 @@
         transition: top 1s;
     }
     .page {
-        border: 1px solid;
         position: absolute;
         width: 100%;
         height: 100%;
     }
     .nav {
         position: fixed;
-        top: 10px;
         right: 10px;
+    }
+    .nav ul {
+        padding: 0;
+        margin: 0;
+    }
+    .nav li {
+        list-style-type: none;
+        width: 15px;
+        height: 15px;
+        padding-top: 10px;
+    }
+    .nav .dot {
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        border-radius: 12px;
+        border: 1px solid;
     }
 </style>
