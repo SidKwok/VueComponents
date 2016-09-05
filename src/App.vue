@@ -62,8 +62,8 @@
             fullpage
         },
         methods: {
-            dosth(to, from) {
-                console.log(2)
+            dosth(cp, pp) {
+                console.log(cp, pp)
             },
             doConfirm() {
                 console.log('yo im confirm')

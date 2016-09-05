@@ -3,7 +3,7 @@
         class="fullpage"
         @wheel="switchPage"
     >
-        <div class="container"
+        <div class="container" v-el:container
             :style="{height: `${pageHeight * pages}px`, top: conPos}"
         >
             <div class="page" v-for="i of pages" :style="{top: `${i * pageHeight}px`}">
@@ -63,15 +63,21 @@
         methods: {
             switchPage(event) {
                 if (!this.scrolling) {
+                    let pages = this.$els.container.children;
                     this.scrolling = true;
                     if (event.target.dataset.page) {
-                        this.currentPage = parseInt(event.target.dataset.page);
+                        let index = parseInt(event.target.dataset.page);
+                        if (this.currentPage != index) {
+                            this.$emit('enter', pages[index - 1], pages[this.currentPage - 1]);
+                            this.currentPage = index;
+                        }
+
                     } else {
-                        console.log(event.deltaY)
                         let index = (event.deltaY > 0) ? 1 : -1;
-                        this.currentPage = ((this.currentPage + index) > this.pages || (this.currentPage + index) <= 0)
-                                            ? this.currentPage
-                                            : this.currentPage + index
+                        if ((this.currentPage + index) <= this.pages && (this.currentPage + index) > 0) {
+                            this.$emit('enter', pages[this.currentPage + index - 1], pages[this.currentPage - 1])
+                            this.currentPage += index;
+                        }
                     }
                     setTimeout(() => {
                         this.scrolling = false;
