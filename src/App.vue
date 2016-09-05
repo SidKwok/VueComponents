@@ -1,11 +1,25 @@
 <template>
     <div id="app">
-        <br />
+        <!-- <br />
         <div style="text-align: center;">
             <radio :name.sync="picked" value="one"></radio>
             <radio :name.sync="picked" value="two"></radio>
+
+            <radio :name.sync="picked2" value="three" :size="20"></radio>
+            <radio :name.sync="picked2" value="four" :size="20"></radio>
         </div>
-        <button @click="dosth">do</button>
+        <button @click="dosth">do</button> -->
+        <!-- <div v-fullpage>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div> -->
+        <full-page :pages="3">
+            <template slot="page-1">1</template>
+            <template slot="page-2">2</template>
+            <template slot="page-3">3</template>
+        </full-page>
     </div>
 </template>
 
@@ -19,6 +33,9 @@
     import Switch from './components/Switch/Switch';
     import UploadImage from './components/UploadImage/UploadImage';
     import Radio from './components/Radio/Radio';
+    import FullPage from './components/FullPage/FullPage';
+
+    import fullpage from './directives/fullpage/fullpage';
 
     export default {
         data() {
@@ -26,7 +43,8 @@
                 show: false,
                 checked: true,
                 formdata: {},
-                picked: 'one'
+                picked: 'one',
+                picked2: 'three'
             }
         },
         components: {
@@ -37,7 +55,11 @@
             Dialog,
             Switch,
             UploadImage,
-            Radio
+            Radio,
+            FullPage
+        },
+        directives: {
+            fullpage
         },
         methods: {
             dosth() {
