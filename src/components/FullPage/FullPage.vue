@@ -1,7 +1,7 @@
 <template lang="html">
     <div v-el:fullpage
         class="fullpage"
-        @mousewheel="switchPage"
+        @wheel="switchPage"
     >
         <div class="container"
             :style="{height: `${pageHeight * pages}px`, top: conPos}"
@@ -68,7 +68,8 @@
                     if (event.target.dataset.page) {
                         this.currentPage = parseInt(event.target.dataset.page);
                     } else {
-                        let index = (event.wheelDelta < 0) ? 1 : -1;
+                        console.log(event.deltaY)
+                        let index = (event.deltaY > 0) ? 1 : -1;
                         this.currentPage = (this.currentPage + index) > this.pages
                                             ? this.currentPage
                                             : this.currentPage + index
