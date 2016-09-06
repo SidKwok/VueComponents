@@ -64,22 +64,29 @@
             switchPage(event) {
                 if (!this.scrolling) {
                     let pages = this.$els.container.children;
+                    let cp = 0;
+                    let pp = 0;
                     this.scrolling = true;
                     if (event.target.dataset.page) {
                         let index = parseInt(event.target.dataset.page);
                         if (this.currentPage != index) {
-                            this.$emit('enter', pages[index - 1], pages[this.currentPage - 1]);
+                            cp = pages[index - 1];
+                            pp = pages[this.currentPage - 1];
                             this.currentPage = index;
                         }
 
                     } else {
                         let index = (event.deltaY > 0) ? 1 : -1;
                         if ((this.currentPage + index) <= this.pages && (this.currentPage + index) > 0) {
-                            this.$emit('enter', pages[this.currentPage + index - 1], pages[this.currentPage - 1])
+                            cp = pages[this.currentPage + index - 1];
+                            pp = pages[this.currentPage - 1];
                             this.currentPage += index;
                         }
                     }
                     setTimeout(() => {
+                        if (cp !=0 && pp != 0) {
+                            this.$emit('enter', cp, pp);
+                        }
                         this.scrolling = false;
                     }, 1000);
                 }
@@ -125,6 +132,7 @@
         height: 12px;
         width: 12px;
         border-radius: 12px;
-        border: 1px solid;
+        border: 1px solid #000;
+        text-decoration: none;
     }
 </style>

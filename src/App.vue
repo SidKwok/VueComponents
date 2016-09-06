@@ -16,9 +16,9 @@
             <div></div>
         </div> -->
         <full-page :pages="3" @enter="dosth">
-            <template slot="page-1">1</template>
-            <template slot="page-2">2</template>
-            <template slot="page-3">3</template>
+            <div slot="page-1" style="background-color: rgb(27, 188, 155);width: 100%;height: 100%;"></div>
+            <div slot="page-2" style="background-color: rgb(255, 153, 0);width: 100%;height: 100%;"></div>
+            <div slot="page-3" style="background-color: rgb(123, 170, 190);width: 100%;height: 100%;"></div>
         </full-page>
     </div>
 </template>

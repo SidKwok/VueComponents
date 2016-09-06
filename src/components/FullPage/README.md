@@ -16,16 +16,16 @@ For activate this component, you should send the `slot` in the component. You ca
 
 Every page's `position` is `relative`, so you may consider well before you write your code down.
 
-Every time enters a page, it will send an event which contains `dom` of current page and previous page like `test(cp, pp)`.
+Every time enters a page, it will send an event which contains `dom` of current page and previous page like `test(currentPage, previousPage)`.
 
 ## Usage
 
 ### Example
 ```html
-<full-page :pages="3" @enter="test">
-    <template slot="page-1">1</template>
-    <template slot="page-2">2</template>
-    <template slot="page-3">3</template>
+<full-page :pages="3" @enter="dosth">
+    <div slot="page-1" style="background-color: rgb(27, 188, 155);width: 100%;height: 100%;"></div>
+    <div slot="page-2" style="background-color: rgb(255, 153, 0);width: 100%;height: 100%;"></div>
+    <div slot="page-3" style="background-color: rgb(123, 170, 190);width: 100%;height: 100%;"></div>
 </full-page>
 ```
 
