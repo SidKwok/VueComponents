@@ -9,17 +9,10 @@
             <radio :name.sync="picked2" value="four" :size="20"></radio>
         </div>
         <button @click="dosth">do</button> -->
-        <!-- <div v-fullpage>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div> -->
-        <full-page :pages="3" @enter="dosth">
-            <div slot="page-1" style="background-color: rgb(27, 188, 155);width: 100%;height: 100%;"></div>
-            <div slot="page-2" style="background-color: rgb(255, 153, 0);width: 100%;height: 100%;"></div>
-            <div slot="page-3" style="background-color: rgb(123, 170, 190);width: 100%;height: 100%;"></div>
-        </full-page>
+        <p v-for="i in 100">
+            yoyo-{{ i }}
+        </p>
+        <go-top></go-top>
     </div>
 </template>
 
@@ -34,8 +27,8 @@
     import UploadImage from './components/UploadImage/UploadImage';
     import Radio from './components/Radio/Radio';
     import FullPage from './components/FullPage/FullPage';
+    import GoTop from './components/GoTop/GoTop';
 
-    import fullpage from './directives/fullpage/fullpage';
 
     export default {
         data() {
@@ -56,10 +49,8 @@
             Switch,
             UploadImage,
             Radio,
-            FullPage
-        },
-        directives: {
-            fullpage
+            FullPage,
+            GoTop
         },
         methods: {
             dosth(cp, pp) {

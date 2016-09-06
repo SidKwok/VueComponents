@@ -30,3 +30,12 @@ Every time enters a page, it will send an event which contains `dom` of current 
 ```
 
 ### Default API
+```javascript
+props: {
+    // how many pages you want to show
+    pages: {
+        type: Number,
+        required: true
+    },
+},
+```
