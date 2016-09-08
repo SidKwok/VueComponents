@@ -10,7 +10,7 @@
             return {
                 currentPage: 1
             }
-        }
+        },
         props: {
             // all pages
             counts: {

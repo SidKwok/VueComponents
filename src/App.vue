@@ -1,7 +1,8 @@
 <template>
     <div id="app">
-        <pages :counts="4"></pages>
+        <!-- <pages :counts="4"></pages> -->
         <button @click="dosth">do</button>
+        <time-line :times="times"></time-line>
     </div>
 </template>
 
@@ -18,8 +19,7 @@
     import FullPage from './components/FullPage/FullPage';
     import GoTop from './components/GoTop/GoTop';
     import Pages from './components/Pages/Pages';
-
-
+    import TimeLine from './components/TimeLine/TimeLine';
     export default {
         data() {
             return {
@@ -27,7 +27,8 @@
                 checked: true,
                 formdata: {},
                 picked: 'one',
-                picked2: 'three'
+                picked2: 'three',
+                times: ['20:00', '21:00']
             }
         },
         components: {
@@ -41,7 +42,8 @@
             Radio,
             FullPage,
             GoTop,
-            Pages
+            Pages,
+            TimeLine
         },
         methods: {
             dosth(cp, pp) {
