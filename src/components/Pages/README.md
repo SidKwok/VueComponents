@@ -1,4 +1,4 @@
-# Pagination
+# Pages
 
 > As name says
 
