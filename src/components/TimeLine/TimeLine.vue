@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="timeline">
         <template v-for="time in times">
-            <div class="dot"></div>
+            <div class="circle"></div>
             <div class="line"></div>
         </template>
     </div>
@@ -28,17 +28,31 @@
     .timeline {
         width: 100px;
     }
-    .dot {
-        width: 25px;
-        height: 25px;
-        border-radius: 25px;
-        background-color: #000;
+    .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        border: 1px solid #000;
         margin: 2px auto;
+        transition: transform 1s;
     }
+    .circle:hover {
+        transform: rotateY(360deg);
+    }
+    .circle:after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        margin: 5px auto;
+        background-color: #000;
+    }
+
     .line {
         height: 50px;
         width: 0px;
-        border: 2px solid #000;
+        border: 1px solid #000;
         margin: 0 auto;
     }
 </style>
