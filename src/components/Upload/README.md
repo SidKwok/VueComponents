@@ -6,6 +6,8 @@
 
  * [] Dragable.
  * [] Progress
+ * [] Set kinds of the files
+ * [] Send the `formData` through `event: upload`
 
 ## Usage
 
