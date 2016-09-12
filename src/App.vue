@@ -2,7 +2,13 @@
     <div id="app">
         <!-- <pages :counts="4"></pages> -->
         <button @click="dosth">do</button>
-        <time-line :times="times"></time-line>
+        <!-- <time-line :times="times"></time-line> -->
+        <upload
+            :form-data.sync="formData"
+            :suffix-group="['png', 'jpeg']"
+            info="yoyo"
+            @error="dosth"
+        ><upload>
     </div>
 </template>
 
@@ -20,15 +26,16 @@
     import GoTop from './components/GoTop/GoTop';
     import Pages from './components/Pages/Pages';
     import TimeLine from './components/TimeLine/TimeLine';
+    import Upload from './components/Upload/Upload';
     export default {
         data() {
             return {
                 show: false,
                 checked: true,
-                formdata: {},
                 picked: 'one',
                 picked2: 'three',
-                times: ['20:00', '21:00']
+                times: ['20:00', '21:00'],
+                formData: null
             }
         },
         components: {
@@ -43,11 +50,12 @@
             FullPage,
             GoTop,
             Pages,
-            TimeLine
+            TimeLine,
+            Upload
         },
         methods: {
-            dosth(cp, pp) {
-                console.log(cp, pp)
+            dosth(err) {
+                console.log(err)
             },
             doConfirm() {
                 console.log('yo im confirm')
