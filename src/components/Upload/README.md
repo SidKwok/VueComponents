@@ -29,7 +29,7 @@
     :suffix-group="['png', 'jpeg']"
     info="yoyo"
     @error="dosth"
-><upload>
+></upload>
 ```
 ### Default API
 

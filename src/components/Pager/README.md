@@ -1,4 +1,4 @@
-# Pages
+# Pager
 
 > As name says
 

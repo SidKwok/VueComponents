@@ -1,30 +1,23 @@
 <template>
     <div id="app">
-        <!-- <pages :counts="4"></pages> -->
         <button @click="dosth">do</button>
         <!-- <time-line :times="times"></time-line> -->
-        <upload
-            :form-data.sync="formData"
-            :suffix-group="['png', 'jpeg']"
-            info="yoyo"
-            @error="dosth"
-        ><upload>
+        <pager :page-size="pager.pageSize"></pager>
     </div>
 </template>
 
 <script>
-    import Toast from './components/Toast/Toast';
+    import Toast from 'components/Toast/Toast';
     import SimpleTable from './components/SimpleTable/SimpleTable';
     import DatePicker from './components/DatePicker/DatePicker';
     import Aside from './components/Aside/Aside';
     import Dialog from './components/Dialog/Dialog';
     import Tabs from './components/Tabs/Tabs';
     import Switch from './components/Switch/Switch';
-    import UploadImage from './components/UploadImage/UploadImage';
     import Radio from './components/Radio/Radio';
     import FullPage from './components/FullPage/FullPage';
     import GoTop from './components/GoTop/GoTop';
-    import Pages from './components/Pages/Pages';
+    import Pager from './components/Pager/Pager';
     import TimeLine from './components/TimeLine/TimeLine';
     import Upload from './components/Upload/Upload';
     export default {
@@ -35,7 +28,10 @@
                 picked: 'one',
                 picked2: 'three',
                 times: ['20:00', '21:00'],
-                formData: null
+                formData: null,
+                pager: {
+                    pageSize: 10
+                }
             }
         },
         components: {
@@ -45,11 +41,10 @@
             Aside,
             Dialog,
             Switch,
-            UploadImage,
             Radio,
             FullPage,
             GoTop,
-            Pages,
+            Pager,
             TimeLine,
             Upload
         },
