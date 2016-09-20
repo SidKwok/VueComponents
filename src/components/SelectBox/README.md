@@ -2,6 +2,8 @@
 
 > A Switch component
 
+## Can not be used! 🤔
+
 ## Goals
 
  * [] select

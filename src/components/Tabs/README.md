@@ -2,6 +2,8 @@
 
 > Tabs help you classify you doc
 
+## Can be used! 🤔
+
 ## Goals
 
  * [] Switch and hide

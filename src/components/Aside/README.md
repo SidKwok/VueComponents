@@ -2,6 +2,8 @@
 
 > Aside notification
 
+## Can be used! ✌️
+
 ## Goals
 
  * [x] Slide in and out

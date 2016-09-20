@@ -2,6 +2,8 @@
 
 > as the name says
 
+## Can be used! ✌️
+
 ## Goals
 
  * [x] Pick the date

@@ -2,6 +2,8 @@
 
 > Dialog that will popup, mainly used to show some information.
 
+## Can be used! ✌️
+
 ## Goals
 
  * [x] Popup

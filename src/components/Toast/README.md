@@ -2,6 +2,8 @@
 
 > Toast that you need to popup
 
+## Can be used! ✌️
+
 ## Goals
 
  * [x] four basic kind of notification (marked with color)

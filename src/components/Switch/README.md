@@ -2,6 +2,8 @@
 
 > A Switch component
 
+## Can be used! ✌️
+
 ## Goals
 
  * [x] Switch between `true` and `false`.

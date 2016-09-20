@@ -2,6 +2,8 @@
 
 > table that can sort, pagination, searchText
 
+## Can be used! ✌️
+
 ## Goals
 
  * [x] Search
