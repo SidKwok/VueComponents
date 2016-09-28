@@ -2,7 +2,9 @@
     <div id="app">
         <button @click="dosth">do</button>
         <!-- <time-line :times="times"></time-line> -->
-        <pager :page-size="pager.pageSize"></pager>
+        <!-- <pager :page-size="pager.pageSize"></pager> -->
+        <Checkbox value="one" :group.sync="list">heiman</Checkbox>
+        <Checkbox value="two" :group.sync="list"></Checkbox>
     </div>
 </template>
 
@@ -20,6 +22,7 @@
     import Pager from './components/Pager/Pager';
     import TimeLine from './components/TimeLine/TimeLine';
     import Upload from './components/Upload/Upload';
+    import Checkbox from './components/Checkbox/Checkbox';
     export default {
         data() {
             return {
@@ -31,7 +34,8 @@
                 formData: null,
                 pager: {
                     pageSize: 10
-                }
+                },
+                list: []
             }
         },
         components: {
@@ -46,7 +50,8 @@
             GoTop,
             Pager,
             TimeLine,
-            Upload
+            Upload,
+            Checkbox
         },
         methods: {
             dosth(err) {
