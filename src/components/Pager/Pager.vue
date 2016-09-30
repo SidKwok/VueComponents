@@ -1,6 +1,6 @@
 <template lang="html">
-    <ul class="pager">
-        <li>&lt;</li><li :class="{active: page === i}" v-for="i in pageSize">{{ i + 1 }}</li><li>&gt;</li>
+    <ul class="pager" @click="switchPage($event)">
+        <li :data-page="currentPage - 1">&lt;</li><li :data-page="i + 1" :class="{active: currentPage === (i + 1)}" v-for="i in pageSize">{{ i + 1 }}</li><li :data-page="currentPage + 1">&gt;</li>
     </ul>
 </template>
 
@@ -8,7 +8,7 @@
     export default {
         data() {
             return {
-                page: 1
+                currentPage: 1
             }
         },
         props: {
@@ -18,7 +18,7 @@
                 required: true
             },
             // links show on pager
-            maxLink: {
+            maxLinks: {
                 type: Number,
                 default: 6
             },
@@ -27,6 +27,15 @@
                 type: Number,
                 default: 0
             },
+        },
+        methods: {
+            switchPage(e) {
+                let page = parseInt(e.target.dataset.page);
+                if (page <= this.pageSize && page > 0) {
+                    this.$emit('switchpage', page, this.currentPage);
+                    this.currentPage = page;
+                }
+            }
         }
     };
 </script>
@@ -48,7 +57,7 @@
     .pager li:nth-child(1) {
         border-left: 1px #000 solid;
     }
-    .pager li .active {
+    .active {
         color: blue;
     }
 </style>

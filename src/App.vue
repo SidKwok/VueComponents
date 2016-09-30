@@ -2,9 +2,7 @@
     <div id="app">
         <button @click="dosth">do</button>
         <!-- <time-line :times="times"></time-line> -->
-        <!-- <pager :page-size="pager.pageSize"></pager> -->
-        <Checkbox value="one" :group.sync="list">heiman</Checkbox>
-        <Checkbox value="two" :group.sync="list"></Checkbox>
+        <pager :page-size="pager.pageSize" @switchpage="dosth"></pager>
     </div>
 </template>
 
@@ -54,8 +52,8 @@
             Checkbox
         },
         methods: {
-            dosth(err) {
-                console.log(err)
+            dosth(cur, pre) {
+                console.log(cur, pre)
             },
             doConfirm() {
                 console.log('yo im confirm')
