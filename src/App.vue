@@ -7,6 +7,7 @@
         <!-- <dropdown :list.sync="list" :options="options"></dropdown> -->
         <tags :tags="tags" :limits="2"></tags>
         <button type="button" @click="dosth">dosth</button>
+        <dfn data-info="12313123">123</dfn>
     </div>
 </template>
 
@@ -43,12 +44,12 @@ export default {
             options: [1, 2, 3],
             tags: [
                 {
-                    value: 'GreatGreatGreatGreatGreatGreatGreat',
+                    value: '你好吗你好吗啊啊啊',
                     text: '#8a89e0',
                     bg: '#e9e8f6'
                 },
                 {
-                    value: 'G',
+                    value: 'GreatGreata',
                     text: '#30a1fe',
                     bg: '#e1effa'
                 }
@@ -91,5 +92,12 @@ export default {
         height: 100%;
         width: 100%;
         margin: 0;
+    }
+    .test {
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: 1px solid black;
+        height: 100px;
     }
 </style>
