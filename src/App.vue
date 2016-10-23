@@ -49,7 +49,7 @@ export default {
                     bg: '#e9e8f6'
                 },
                 {
-                    value: 'GreatGreata',
+                    value: 'GreatGreat',
                     text: '#30a1fe',
                     bg: '#e1effa'
                 }

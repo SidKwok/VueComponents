@@ -20,7 +20,7 @@
                 >{{ tag.value }}</span>
             </span> -->
             <span v-for="tag in tags"
-                :class="['tag', {'hint--bottom': tag.text}]"
+                :class="['tag', {'hint--bottom': bytesLength(tag.value) > 10}]"
                 :aria-label="tag.value"
                 :style="{
                     border: `solid 1px ${tag.text}`,
@@ -51,13 +51,17 @@ export default {
     computed: {
         isDots() {
             return this.tags.length > this.limits;
-        }
+        },
     },
     filters: {
         ellipsis(val) {
-            let bytesLength = val.replace(/[^\x00-\xff]/gi, "--").length;
-            return bytesLength > 10
+            return this.bytesLength(val) > 10
                 ? val.slice(0, 4) + '...' : val;
+        }
+    },
+    methods: {
+        bytesLength(val) {
+            return val.replace(/[^\x00-\xff]/gi, "--").length;
         }
     }
 };
