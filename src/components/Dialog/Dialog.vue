@@ -33,76 +33,76 @@
 </template>
 
 <script>
-    export default {
-      data() {
-          return {
-          };
-      },
-      props: {
-          // show the dialog or not
-          // has to be twoWay binding
-          // so you can control it in and out
-          show: {
-              type: Boolean,
-              default: false,
-              twoWay: true
-          },
-          // title above
-          title: {
-              type: String,
-              required: true
-          },
-          // what kind of the dialog
-          // info, success, confirm, warn, error
-          type: {
-              type: String,
-              default: 'info'
-          },
-          // width of the center box
-          width: {
-              type: Number,
-              default: 500
-          },
-      },
-      computed: {
-          showCancel() {
-              return (this.type === 'confirm' || this.type === 'warn')
-          },
-          okText() {
-              let text = '';
-              switch (this.type) {
-                  case 'confirm':
-                  case 'warn':
-                      text = 'confirm';
-                      break;
-                  case 'error':
-                  case 'info':
-                  case 'success':
-                  default:
-                      text = 'Ok'
-                      break;
-              }
-              return text;
-          }
-      },
-      methods: {
-          doNext() {
-              switch (this.type) {
-                  case 'confirm':
-                      this.$emit('confirm');
-                      break;
-                  case 'warn':
-                      this.$emit('warn')
-                      break;
-              }
-              // each button should be able to close dialog
-              this.close();
-          },
-          close() {
-              this.show = false;
-          }
-      },
-    };
+export default {
+    name: 'dialog',
+    data() {
+        return {};
+    },
+    props: {
+        // show the dialog or not
+        // has to be twoWay binding
+        // so you can control it in and out
+        show: {
+            type: Boolean,
+            default: false,
+            twoWay: true
+        },
+        // title above
+        title: {
+            type: String,
+            required: true
+        },
+        // what kind of the dialog
+        // info, success, confirm, warn, error
+        type: {
+            type: String,
+            default: 'info'
+        },
+        // width of the center box
+        width: {
+            type: Number,
+            default: 500
+        },
+    },
+    computed: {
+        showCancel() {
+            return (this.type === 'confirm' || this.type === 'warn')
+        },
+        okText() {
+            let text = '';
+            switch (this.type) {
+                case 'confirm':
+                case 'warn':
+                    text = 'confirm';
+                    break;
+                case 'error':
+                case 'info':
+                case 'success':
+                default:
+                    text = 'Ok'
+                    break;
+                }
+            return text;
+        }
+    },
+    methods: {
+        doNext() {
+            switch (this.type) {
+                case 'confirm':
+                    this.$emit('confirm');
+                    break;
+                case 'warn':
+                    this.$emit('warn')
+                    break;
+            }
+            // each button should be able to close dialog
+            this.close();
+        },
+        close() {
+            this.show = false;
+        }
+    }
+};
 </script>
 
 <style lang="css" scoped>

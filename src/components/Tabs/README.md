@@ -2,7 +2,7 @@
 
 > Tabs help you classify you doc
 
-## Can be used! 🤔
+## Can not be used! 🤔
 
 ## Goals
 

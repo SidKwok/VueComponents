@@ -31,7 +31,7 @@
             show: {
                 type: Boolean,
                 default: false,
-                twoWay: false
+                twoWay: true
             },
             // toast type: normal, success, warn, fail
             type: {

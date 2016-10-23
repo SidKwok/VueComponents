@@ -1,6 +1,8 @@
 <template lang="html">
     <div class="dropdown">
-
+        <select v-model="list">
+            <option v-for="option in options">{{ option }}</option>
+        </select>
     </div>
 </template>
 
@@ -8,6 +10,17 @@
 export default {
     data() {
         return {}
+    },
+    props: {
+        list: {
+            type: Array,
+            required: true,
+            twoWay: true
+        },
+        options: {
+            type: Array,
+            required: true
+        }
     }
 }
 </script>
