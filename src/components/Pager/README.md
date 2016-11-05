@@ -2,23 +2,27 @@
 
 > As name says
 
-## Can not be used! 🤔
+## Can be used! ✌️
 
 ## Goals
 
- * [] Event: change
+ * [x] Event: update
 
 ## Noted
-
+When you update the page size of the current page, it will send the same event called `update` with an `Object` `{page: 10, limit: 5}`.
 
 ## Usage
 
 ### Example
 
 ```html
+<pager @update="updatePageSync"></pager>
 ```
 
 
 ### Default API
 ```javascript
+props: {
+    count: Number
+}
 ```

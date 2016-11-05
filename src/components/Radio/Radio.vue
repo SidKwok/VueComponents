@@ -13,53 +13,53 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            // the radio group it belongs
-            name: {
-                type: String,
-                required: true,
-                twoWay: true
-            },
-            // it's value
-            value: {
-                type: String,
-                required: true
-            },
-            // size of radio
-            size: {
-                type: Number,
-                default: 16
-            },
+export default {
+    props: {
+        // the radio group it belongs
+        name: {
+            type: String,
+            required: true,
+            twoWay: true
         },
-        computed: {
-            checked() {
-                return this.name === this.value;
-            },
-            circleSize() {
-                return {
-                    width: `${this.size}px`,
-                    height: `${this.size}px`
-                }
-            },
-            circleStyle() {
-                return {
-                    borderColor: this.checked ? '#2196f3' : 'rgba(0,0,0,.38)'
-                }
-            },
-            dotSize() {
-                return {
-                    width: `${this.size - 6}px`,
-                    height: `${this.size - 6}px`
-                }
-            },
-            dotStyle() {
-                return {
-                    opacity: this.checked ? 1 : 0
-                }
-            }
+        // it's value
+        value: {
+            type: String,
+            required: true
+        },
+        // size of radio
+        size: {
+            type: Number,
+            default: 16
+        },
+    },
+    computed: {
+        checked() {
+            return this.name === this.value;
+        },
+        circleSize() {
+            return {
+                width: `${this.size}px`,
+                height: `${this.size}px`
+            };
+        },
+        circleStyle() {
+            return {
+                borderColor: this.checked ? '#2196f3' : 'rgba(0,0,0,.38)'
+            };
+        },
+        dotSize() {
+            return {
+                width: `${this.size - 6}px`,
+                height: `${this.size - 6}px`
+            };
+        },
+        dotStyle() {
+            return {
+                opacity: this.checked ? 1 : 0
+            };
         }
-    };
+    }
+};
 </script>
 
 <style lang="css" scoped>
