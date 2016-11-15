@@ -8,6 +8,7 @@
         <tags :tags="tags" :limits="2"></tags>
         <button type="button" @click="dosth">dosth</button>
         <dfn data-info="12313123">123</dfn>
+        <calendar></calendar>
     </div>
 </template>
 
@@ -28,6 +29,8 @@ import Upload from './components/Upload/Upload';
 import Checkbox from './components/Checkbox/Checkbox';
 import Dropdown from './components/Dropdown/Dropdown';
 import Tags from './components/Tags/Tags';
+import Calendar from './components/Calendar/Calendar';
+
 export default {
     data() {
         return {
@@ -71,7 +74,8 @@ export default {
         Upload,
         Checkbox,
         Dropdown,
-        Tags
+        Tags,
+        Calendar
     },
     methods: {
         dosth(cur, pre) {

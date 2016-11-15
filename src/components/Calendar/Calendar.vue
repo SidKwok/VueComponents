@@ -28,12 +28,6 @@
                     <li data-type="month" data-month="12">12 月</li>
                 </ul>
             </a>
-            <a href="javascript: void(0);" class="config" data-type="config">
-                <i class="fa fa-gear"></i> 日报配置
-            </a>
-            <a href="javascript: void(0);" class="resend" data-type="resend">
-                <i class="fa fa-rotate-left"></i> 重发前一封日报
-            </a>
         </div>
         <div class="calendar" @click="getDailyReportContent($event)">
             <div class="row">
@@ -58,16 +52,7 @@
 </template>
 
 <script>
-import routeMixin from 'mixins/routeMixin';
-import { Get } from 'state/actions';
-import { getAppInfo } from 'state/getters';
 export default {
-    head: {
-        title: {
-            inner: '日报'
-        }
-    },
-    mixins: [routeMixin],
     data() {
         let currentDate = new Date();
         return {
@@ -114,14 +99,6 @@ export default {
             return arr;
         }
     },
-    vuex: {
-        actions: {
-            Get
-        },
-        getters: {
-            app: getAppInfo
-        }
-    },
     methods: {
         isEqual(day, currentDay) {
             return (day.getFullYear() === currentDay.getFullYear()
@@ -149,9 +126,6 @@ export default {
                         this.month = Number(dataset.month);
                         e.target.parentNode.parentNode.blur();
                         break;
-                    case 'config':
-                        // TODO
-                        break;
                     case 'resend':
                         this.resendDailyReport(
                             this.combineDate(new Date(this.currentDate - 24 * 60 * 60 * 1000))
@@ -161,30 +135,6 @@ export default {
                         break;
                 }
             }
-        },
-        getDailyReportContent(e) {
-            const date = e.target.dataset.date;
-            if (date) {
-                this.Get(
-                    '/daily-report/get-daily-report-content',
-                    {
-                        appKey: this.app.key,
-                        date
-                    }
-                ).then(retData => {
-                    console.log(retData);
-                }).catch(err => console.log(err));
-            }
-        },
-        resendDailyReport(date) {
-            this.Get(
-                '/daily-report/resend-daily-report',
-                {
-                    appKey: this.app.key,
-                    date
-                }
-            ).then(retData => console.log(retData))
-            .catch(errMsg => console.log(errMsg));
         }
     },
     filters: {
@@ -199,4 +149,108 @@ export default {
 </script>
 
 <style scoped>
+    .daily-report {
+        width: 100%;
+        height: 792px;
+    }
+    .daily-report .header {
+        font-size: 30px;
+        height: 54px;
+        border-bottom: 1px solid #ddd;
+    }
+    .daily-report .header .year,
+    .daily-report .header .month {
+        display: inline-block;
+        position: relative;
+    }
+    .daily-report .header .year i,
+    .daily-report .header .month i {
+        top: -5px;
+        position: relative;
+        font-size: .5em;
+        color: #ddd;
+    }
+    .daily-report .header .year ul,
+    .daily-report .header .month ul {
+        position: absolute;
+        top: 36px;
+        width: 112px;
+        height: auto;
+        background-color: #fff;
+        padding: 8px 0px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        display: none;
+    }
+    .daily-report .header .year ul li,
+    .daily-report .header .month ul li {
+        height: 32px;
+        font-size: 14px;
+        padding-left: 16px;
+        line-height: 32px;
+        cursor: pointer;
+    }
+    .daily-report .header .year ul li:hover,
+    .daily-report .header .month ul li:hover {
+        background-color: #ebf5fd;
+    }
+    .daily-report .header .year ul .active,
+    .daily-report .header .month ul .active {
+        color: #008cff;
+    }
+    .daily-report .header .year:focus > ul,
+    .daily-report .header .month:focus > ul {
+        display: block;
+    }
+    .daily-report .header .year:focus > i,
+    .daily-report .header .month:focus > i {
+        transform: rotate(180deg);
+    }
+    .daily-report .header .resend,
+    .daily-report .header .config {
+        float: right;
+        font-size: 14px;
+        color: #008cff;
+        margin-left: 48px;
+    }
+    .daily-report .header a:nth-child(2) {
+        margin-left: 24px;
+    }
+    .daily-report .calendar {
+        width: 100%;
+    }
+    .daily-report .calendar .row {
+        display: flex;
+        justify-content: space-between;
+    }
+    .daily-report .calendar .row .week-header {
+        height: 56px;
+        flex: 1;
+        border-bottom: 1px solid #ddd;
+        line-height: 56px;
+        font-size: 14px;
+        padding-left: 16px;
+        font-weight: 500;
+    }
+    .daily-report .calendar .row .day {
+        flex: 1;
+        display: inline-block;
+        height: 136px;
+        border: 1px solid #ddd;
+        border-left: none;
+        border-top: none;
+        font-size: 16px;
+        padding: 16px;
+    }
+    .daily-report .calendar .row .day:nth-child(1) {
+        border-left: 1px solid #ddd;
+    }
+    .daily-report .calendar .row .gray {
+        color: #ddd;
+        pointer-events: none;
+        cursor: no-drop;
+    }
+    .daily-report .calendar .row .active {
+        background-color: #e5f3ff;
+    }
 </style>

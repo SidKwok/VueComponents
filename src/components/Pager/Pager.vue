@@ -137,98 +137,88 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style scoped>
     .pager {
         font-size: 14px;
         height: 120px;
         margin: 16px 0px;
-        &-count {
-            display: inline-block;
-            float: right;
-            width: 88px;
-            height: 32px;
-            text-align: center;
-            line-height: 32px;
-            margin-left: 16px;
-        }
-
-        &-size {
-            display: inline-block;
-            float: right;
-            width: 112px;
-            height: 32px;
-            border: solid 1px #ddd;
-            border-radius: 2px;
-            text-align: center;
-            line-height: 32px;
-            margin-left: 16px;
-            cursor: pointer;
-
-            &-select {
-                color: #333;
-                i {
-                    color: #ddd;
-                    margin-left: 4px;
-                    transition: .3s;
-                }
-            }
-
-            &:focus > &-options {
-                display: block;
-            }
-            &:focus > &-select i {
-                transform: rotate(180deg);
-            }
-
-            &-options {
-                position: absolute;
-                width: 112px;
-                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-                background-color: #fff;
-                z-index: 100;
-                border-radius: 2px;
-                display: none;
-                padding: 8px 0px;
-
-                li {
-                    height: 32px;
-                    // padding-left: 16px;
-                    line-height: 32px;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: #ebf5fd;
-                    }
-                }
-            }
-        }
-
-        &-nav {
-            display: inline-block;
-            float: right;
-            height: 33px;
-            line-height: 32px;
-            border: solid 1px #ddd;
-            border-radius: 2px;
-            margin-left: 16px;
-
-            li {
-                float: left;
-                min-width: 32px;
-                text-align: center;
-                border-left: solid 1px #ddd;
-                // transition: .1s;
-                cursor: pointer;
-            }
-            li:nth-child(1) {
-                border-left: none;
-            }
-            li:hover,
-            .active {
-                border-color: #008cff;
-                background-color: #008cff;
-                color: #fff;
-            }
-        }
+    }
+    .pager-count {
+        display: inline-block;
+        float: right;
+        width: 88px;
+        height: 32px;
+        text-align: center;
+        line-height: 32px;
+        margin-left: 16px;
+    }
+    .pager-size {
+        display: inline-block;
+        float: right;
+        width: 112px;
+        height: 32px;
+        border: solid 1px #ddd;
+        border-radius: 2px;
+        text-align: center;
+        line-height: 32px;
+        margin-left: 16px;
+        cursor: pointer;
+    }
+    .pager-size-select {
+        color: #333;
+    }
+    .pager-size-select i {
+        color: #ddd;
+        margin-left: 4px;
+        transition: .3s;
+    }
+    .pager-size:focus > .pager-size-options {
+        display: block;
+    }
+    .pager-size:focus > .pager-size-select i {
+        transform: rotate(180deg);
+    }
+    .pager-size-options {
+        position: absolute;
+        width: 112px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        background-color: #fff;
+        z-index: 100;
+        border-radius: 2px;
+        display: none;
+        padding: 8px 0px;
+    }
+    .pager-size-options li {
+        height: 32px;
+        line-height: 32px;
+        cursor: pointer;
+    }
+    .pager-size-options li:hover {
+        background-color: #ebf5fd;
+    }
+    .pager-nav {
+        display: inline-block;
+        float: right;
+        height: 33px;
+        line-height: 32px;
+        border: solid 1px #ddd;
+        border-radius: 2px;
+        margin-left: 16px;
+    }
+    .pager-nav li {
+        float: left;
+        min-width: 32px;
+        text-align: center;
+        border-left: solid 1px #ddd;
+        cursor: pointer;
+    }
+    .pager-nav li:nth-child(1) {
+        border-left: none;
+    }
+    .pager-nav li:hover,
+    .pager-nav .active {
+        border-color: #008cff;
+        background-color: #008cff;
+        color: #fff;
     }
 </style>
