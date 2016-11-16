@@ -12,7 +12,9 @@
                 <p class="title">{{ title }}</p>
             </div>
             <div class="dialog-content">
-                <slot><slot>
+                <slot>
+                    {{ content }}
+                <slot>
             </div>
             <div class="btn-group">
                 <a href="javascript: void(0);"
@@ -47,6 +49,12 @@ export default {
             type: String,
             required: true
         },
+        // if you dont have slot,
+        // you are supposed to set the content
+        content: {
+            type: String,
+            default: ''
+        },
         // what kind of the dialog
         // info, success, confirm, warn, error
         type: {
@@ -57,11 +65,11 @@ export default {
         width: {
             type: Number,
             default: 500
-        },
+        }
     },
     computed: {
         showCancel() {
-            return (this.type === 'confirm' || this.type === 'warn')
+            return (this.type === 'confirm' || this.type === 'warn');
         },
         okText() {
             let text = '';
@@ -74,9 +82,9 @@ export default {
                 case 'info':
                 case 'success':
                 default:
-                    text = 'Ok'
+                    text = 'Ok';
                     break;
-                }
+            }
             return text;
         }
     },
@@ -87,7 +95,7 @@ export default {
                     this.$emit('confirm');
                     break;
                 case 'warn':
-                    this.$emit('warn')
+                    this.$emit('warn');
                     break;
             }
             // each button should be able to close dialog
@@ -104,6 +112,7 @@ export default {
         height: 100%;
         top: 0px;
         left: 0px;
+        z-index: 9999;
     }
     .overlay {
         position: absolute;
@@ -164,6 +173,7 @@ export default {
         margin: 35px auto;
         width: 98%;
         text-align: center;
+        word-break: break-all;
     }
     .btn-group {
         margin: 0px auto;
