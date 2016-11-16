@@ -1,13 +1,14 @@
 <template lang="html">
-    <div class="dialog" v-show="show" transition="fade">
-        <div class="overlay" @click="close"></div>
-        <div class="dialog-box" v-show="show"
+    <div class="dialog" transition="fade">
+        <div class="overlay" @click="$emit('close')"></div>
+        <div class="dialog-box"
             transition="zoom"
+            v-show="show"
             :style="{
                 width: `${width}px`,
                 }">
             <div class="dialog-head">
-                <button class="close" @click="close"></button>
+                <button class="close" @click="$emit('close')"></button>
                 <p class="title">{{ title }}</p>
             </div>
             <div class="dialog-content">
@@ -23,7 +24,7 @@
                 <a href="javascript: void(0);"
                     class="dialog-cancel"
                     v-if="showCancel"
-                    @click="close"
+                    @click="$emit('close')"
                 >
                     Cancel
                 </a>
@@ -35,17 +36,11 @@
 <script>
 export default {
     name: 'dialog',
-    data() {
-        return {};
-    },
     props: {
-        // show the dialog or not
-        // has to be twoWay binding
-        // so you can control it in and out
+        // to trigger Animations
         show: {
             type: Boolean,
-            default: false,
-            twoWay: true
+            default: false
         },
         // title above
         title: {
@@ -96,10 +91,7 @@ export default {
                     break;
             }
             // each button should be able to close dialog
-            this.close();
-        },
-        close() {
-            this.show = false;
+            this.$emit('close');
         }
     }
 };

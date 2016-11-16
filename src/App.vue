@@ -1,14 +1,11 @@
 <template>
     <div id="app">
         <button @click="dosth">do</button>
-        <!-- <time-line :times="times"></time-line> -->
-        <!-- <pager :page-size="pager.pageSize" @switchpage="dosth"></pager> -->
-        <!-- <toast :show.sync="show">yo</toast> -->
-        <!-- <dropdown :list.sync="list" :options="options"></dropdown> -->
-        <tags :tags="tags" :limits="2"></tags>
-        <button type="button" @click="dosth">dosth</button>
-        <dfn data-info="12313123">123</dfn>
-        <calendar></calendar>
+        <dialog v-show="show"
+            @close="show = false"
+            title="yo"
+            :show="show"
+            ></dialog>
     </div>
 </template>
 
