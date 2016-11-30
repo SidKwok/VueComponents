@@ -25,8 +25,7 @@
     type="normal"
     :expire="10000"
     :width="200"
-    :height="100"
->
+    :height="100">
     Vue is gas!
 </toast>
 ```

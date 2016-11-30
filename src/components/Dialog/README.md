@@ -18,7 +18,6 @@
 
  * Only `confirm` and `warn` type have callback event.
  * If you need to change the text of the buttons, feel free to change it in the component.
- * I remove `show.sync` to make sure ~props down, events up~, so you need to use `v-show` or `v-if`. But `show` is still remained to trigger animation.
 
 ## Usage
 
@@ -26,7 +25,6 @@
 
 ```html
 <dialog v-show="show"
-    :show="show"
     title="yoyoyo"
     type="success"
     :width="500"
@@ -57,21 +55,38 @@ methods: {
 ### Default API
 ```javascript
 props: {
-    // title above
-    title: {
-        type: String,
-        required: true
-    },
-    // what kind of the dialog
-    // info, success, confirm, warn, error
     type: {
         type: String,
-        default: 'info'
+        default: 'normal' // success, fail, warn, confirm
     },
-    // width of the center box
+    title: String,
+    normalText: {
+        type: String,
+        default: '保存'
+    },
+    warnText: {
+        type: String,
+        default: '确认'
+    },
+    confirmText: {
+        type: String,
+        default: '确认'
+    },
+    cancelText: {
+        type: String,
+        default: '取消'
+    },
+    btnPos: {
+        type: String,
+        default: 'middle'
+    },
     width: {
         type: Number,
-        default: 500
+        default: 400
     },
-},
+    showNormal: {
+        type: Boolean,
+        default: true
+    }
+}
 ```
