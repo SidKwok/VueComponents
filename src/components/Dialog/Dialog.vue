@@ -179,6 +179,7 @@ export default {
                     display: block;
                     margin: 16px auto 0 auto;
                     width: 285px;
+                    text-align: center;
 
                     .dialog-btn {
                         display: inline-block;
